@@ -1,28 +1,60 @@
 ---
-title: "Manuscript Title"
+title: "sourmash taxonomy for LCA-style summarization of genome-resolved taxonomic profiling"
 date: null  # Defaults to date generated, but can specify like '2022-10-31'.
 keywords:
-  - markdown
-  - publishing
-  - manubot
+  - taxonomic profiling
+  - FracMinHash
+  - k-mers
+  - metagenomics
+  - taxonomy
 lang: en-US
 authors:
-  - github: johndoe
-    name: John Doe
-    initials: JD
-    orcid: XXXX-XXXX-XXXX-XXXX
-    twitter: johndoe
-    email: john.doe@something.com
+  - github: bluegenes
+    name: N. Tessa Pierce-Ward
+    initials: NTP
+    orcid: 0000-0002-2942-5331
+    twitter: saltyscientist
+    email: ntpierce@ucdavis.edu
     affiliations:
-      - Department of Something, University of Whatever
+     - Department of Population Health and Reproduction, UC Davis
     funders:
-      - Grant XXXXXXXX
-  - github: janeroe
-    name: Jane Roe
-    initials: JR
-    orcid: XXXX-XXXX-XXXX-XXXX
-    email: jane.roe@whatever.edu
-    affiliations:
-      - Department of Something, University of Whatever
-      - Department of Whatever, University of Something
+      - Grant 1711984 from the NSF
+      - Grant GBMF4551 from the Gordon and Betty Moore Foundation
+      - Grant 2018911 from the NSF
     corresponding: true
+  - github: luizirber
+    name: Luiz Irber
+    initials: LI
+    orcid: 0000-0003-4371-9659
+    twitter: luizirber
+    email: lcirberjr@ucdavis.edu
+    affiliations:
+      - Graduate Group in Computer Science, UC Davis
+      - Department of Population Health and Reproduction, UC Davis
+    funders:
+      - Grant GBMF4551 from the Gordon and Betty Moore Foundation
+      - Grant R01HG007513 from the NIH NHGRI
+  - github: taylorreiter
+    name: Taylor Reiter
+    initials: TER
+    orcid: 0000-0002-7388-421X
+    twitter: ReiterTaylor
+    email: tereiter@ucdavis.edu
+    affiliations:
+      - Graduate Group in Food Science, UC Davis
+      - Department of Population Health and Reproduction, UC Davis
+    funders:
+      - Grant GBMF4551 from the Gordon and Betty Moore Foundation
+      - Grant R03OD030596 from the NIH Common Fund 
+  - github: ctb
+    name: C. Titus Brown
+    initials: CTB
+    orcid: 0000-0001-6001-2677
+    email: ctbrown@ucdavis.edu
+    affiliations:
+      - Department of Population Health and Reproduction, UC Davis
+    funders:
+      - Grant GBMF4551 from the Gordon and Betty Moore Foundation
+      - Grant R01HG007513 from the NIH NHGRI
+      - Grant 2018911 from the NSF
+      - Grant R03OD030596 from the NIH Common Fund
