@@ -27,8 +27,8 @@ header-includes: |-
   <meta name="dc.date" content="2022-11-14" />
   <meta name="citation_publication_date" content="2022-11-14" />
   <meta property="article:published_time" content="2022-11-14" />
-  <meta name="dc.modified" content="2022-11-14T21:46:08+00:00" />
-  <meta property="article:modified_time" content="2022-11-14T21:46:08+00:00" />
+  <meta name="dc.modified" content="2022-11-14T21:48:16+00:00" />
+  <meta property="article:modified_time" content="2022-11-14T21:48:16+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -58,9 +58,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/40dd55894b53fc5b812b80356458a8046e6af5a3/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/40dd55894b53fc5b812b80356458a8046e6af5a3/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/40dd55894b53fc5b812b80356458a8046e6af5a3/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/548203a7b35c78e864930fde5bbf4f11448332f3/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/548203a7b35c78e864930fde5bbf4f11448332f3/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/548203a7b35c78e864930fde5bbf4f11448332f3/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -82,9 +82,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/40dd55894b53fc5b812b80356458a8046e6af5a3/))
+([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/548203a7b35c78e864930fde5bbf4f11448332f3/))
 was automatically generated
-from [bluegenes/2022-paper-sourmash-taxonomy@40dd558](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/40dd55894b53fc5b812b80356458a8046e6af5a3)
+from [bluegenes/2022-paper-sourmash-taxonomy@548203a](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/548203a7b35c78e864930fde5bbf4f11448332f3)
 on November 14, 2022.
 </em></small>
 
@@ -253,7 +253,7 @@ Similar to `tax metagenome`, `tax genome` will output both the fraction of uniqu
 
 #### Reads
 
-- `gather` threshold
+- `gather` threshold (long reads, short reads, library depth considerations)
 
 
 #### Contigs
@@ -267,7 +267,7 @@ Similar to `tax metagenome`, `tax genome` will output both the fraction of uniqu
 - classification thresholding
     - containment threshold
     - cANI threshold
-- rank-based classification 
+- rank-based classification
 
 
 ## Discussion

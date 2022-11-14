@@ -3,7 +3,7 @@ CAMI
 cANI
 combinatorial
 Contigs
-CSV
+csv
 ctb
 dataset
 FracMinHash
@@ -21,7 +21,7 @@ Luiz
 luizirber
 mer
 mers
-Metagenome
+metagenome
 metagenomes
 NHGRI
 phulum
