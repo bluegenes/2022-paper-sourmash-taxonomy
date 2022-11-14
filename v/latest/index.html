@@ -51,8 +51,8 @@
   <meta name="dc.date" content="2022-11-14" />
   <meta name="citation_publication_date" content="2022-11-14" />
   <meta property="article:published_time" content="2022-11-14" />
-  <meta name="dc.modified" content="2022-11-14T19:41:23+00:00" />
-  <meta property="article:modified_time" content="2022-11-14T19:41:23+00:00" />
+  <meta name="dc.modified" content="2022-11-14T21:29:15+00:00" />
+  <meta property="article:modified_time" content="2022-11-14T21:29:15+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -82,9 +82,9 @@
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/b7a32581ab6207683905e7b948a69d795ce5b299/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/b7a32581ab6207683905e7b948a69d795ce5b299/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/b7a32581ab6207683905e7b948a69d795ce5b299/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -101,9 +101,9 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/b7a32581ab6207683905e7b948a69d795ce5b299/">permalink</a>)
+(<a href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/b7a32581ab6207683905e7b948a69d795ce5b299">bluegenes/2022-paper-sourmash-taxonomy@b7a3258</a>
+from <a href="https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/214efc551a48f55d028d897693f803b63cba9748">bluegenes/2022-paper-sourmash-taxonomy@214efc5</a>
 on November 14, 2022.
 </em></small></p>
 <h2 id="authors">Authors</h2>
@@ -177,44 +177,46 @@ Single k-mers, either for true biological reasons or as a result of reference in
 In our experience, aggregating k-mer matches to the set of best genome matches with gather prior to LCA means contamination and other reference issues are far less likely to impact LCA annotations. As an added benefit, this approach allows us to do taxonomic assignment with multiple taxonomies (e.g. GTDB if available, NCBI for the remaining), so long as the gather was run against the appropriate databases.
 -->
 <h2 id="implementation">Implementation</h2>
-<p>Sourmash taxonomy conducts LCA-style taxonomic summarization of the genomic profiling results from sourmash gather.
+<p>Sourmash taxonomy conducts Lowest Common Ancestor (LCA) taxonomic summarization of the genomic profiling results from sourmash gather.
 It was introduced in sourmash v4.2, and all commands and outputs described here are available as of sourmash v4.6.</p>
-<h3 id="lca-style-lineage-summarization">LCA-Style Lineage summarization</h3>
+<h3 id="lca-lineage-summarization">LCA Lineage summarization</h3>
 <p>Sourmash gather uses a minimum set cover approach to identify the smallest set of reference genomes that contain all query information (k-mers) <span class="citation" data-cites="IadOz4ol">[<a href="#ref-IadOz4ol" role="doc-biblioref">1</a>]</span>.
 These matches are non-overlapping; that is, the sum of the query fraction assigned to each genome will be at most 100% (entire query matched to reference genomes).</p>
 <p>Sourmash taxonomy LCA methods apply the taxonomic information from these reference genomes to their assigned query fraction and sum matches that correspond to the same taxonomic rank. For example, if the <code>sourmash gather</code> results for a metagenome include matches to 10 different strains of a given species, <code>sourmash tax</code> LCA can sum the fraction uniquely matched to each strain to obtain the total fraction uniquely matched to this species.</p>
 <p>Because this approach relies upon non-overlapping reference assignments, separate <code>sourmash gather</code> results for the same query cannot be combined. However, <code>sourmash gather</code> can be run with any number of desired reference databases at once to produce a single set of non-overlapping assignments.</p>
-<p>All <code>tax</code> commands require a properly-formatted taxonomic lineages file: a csv file containing a unique genome identifier and one column per taxonomic rank, with correct headers (e.g. “ident”, “superkingdom”, “phulum”, …, “species”). A column containing strain-level information is optional.</p>
-<p>Two <code>sourmash tax</code> commands use LCA-Style summarization: <code>metagenome</code> and <code>genome</code>, while the remaining commands provide utility functions for summarizing lineage file information (<code>summarize</code>) and checking database-lineage file correspondence (<code>crosscheck</code>), preparing a lineage file for fast search (<code>prepare</code>), subsetting large reference databases by lineage (<code>grep</code>), and annotating gather results with genome-level lineage information (<code>annotate</code>).</p>
+<p>All <code>tax</code> commands require a properly-formatted taxonomic lineages CSV or prepared sqlite3 database. The CSV file (optionally gzipped) containing a unique genome identifier and one column per taxonomic rank, with correct headers (e.g. “ident”, “superkingdom”, “phulum”, …, “species”). A column containing strain-level information is optional. While CSV files are easy to view and modify using spreadsheet software, the <code>sourmash tax prepare</code> command can convert lineage CSV(s) into sqlite3 databases, which enable much faster <code>tax</code> functionality for large taxonomies. If multiple taxonomic lineages are provided for the same identifier, only the last one provided will be retained; the order of provided taxonomy files is important, and the most trusted lineages should be provided as the last lineages file.</p>
+<p>Two <code>sourmash tax</code> commands use LCA-Style summarization: <code>metagenome</code> and <code>genome</code>, while the remaining commands provide utility functions for annotating gather results with genome-level lineage information (<code>annotate</code>), summarizing lineage file information (<code>summarize</code>) and checking database-lineage file correspondence (<code>crosscheck</code>), preparing a lineage file for fast search (<code>prepare</code>), and subsetting large reference databases by lineage (<code>grep</code>).</p>
 <!--
-tax commands rely upon the fact that gather provides both the total fraction of the query matched to each database matched, as well as a non-overlapping f_unique_to_query, which is the fraction of the query uniquely matched to each reference genome. The f_unique_to_query for any reference match will always be between (0% of query matched) and 1 (100% of query matched), and for a query matched to multiple references, the f_unique_to_query will sum to at most 1 (100% of query matched). We use this property to aggregate gather matches at the desired taxonomic rank. For example, if the gather results for a metagenome include results for 30 different strains of a given species, we can sum the fraction uniquely matched to each strain to obtain the fraction uniquely matched to this species. Alternatively, taxonomic summarization can take into account abundance weighting; see classifying signatures for more information.
-
+**make sure to discuss which commands summarize with abundance weighting**
 -->
 <h4 id="sourmash-tax-metagenome">sourmash tax metagenome</h4>
 <p><code>sourmash tax metagenome</code> is designed to conduct LCA aggregation for metagenomes to build a taxonomic profile.
 It ingests sourmash gather results from one or more metagenome queries and summarize the results for each metagenome at each taxonomic rank.
-<code>tax metagenome</code> provides several output file options, including some that are designed to facilitate input into downstream analysis tools.</p>
+<code>tax metagenome</code> provides several output file options, including some that are designed to facilitate input into downstream analysis tools. Multiple output files can be produced in the same command.</p>
 <p><strong>Output Formats</strong></p>
-<p><em>csv_summary</em> This output file reports a lineage summarization for each query at each taxonomic rank. Enable this output with <code>-F csv_summary</code>.</p>
-<p><em>krona</em> When used with <code>-F krona --rank RANK</code>, <code>sourmash tax metagenome</code> optionally produces a tab-separated list of results at a specific rank, which can be directly used to generate a <code>krona</code> plot (cite krona; add krona figure to results). This format is minimal, containing fraction of the query matched to the reported rank and lineage, with columns for each taxonomic rank down to the rank used for summarization.</p>
+<p><em>csv_summary</em> This output file reports a lineage summarization for each query at each taxonomic rank.
+If query signatures were sketched with abundance information (<code>-p abund</code>) and the gather results contain this information, the <code>csv_summary</code> format will output both the fraction of unique k-mers (<code>fraction</code>), and abundance-weighted fraction of unique k-mers (<code>f_weighted_at_rank</code>) matched to a lineage at each rank. The abundance-weighted fraction provides a better estimate of the total % of the dataset matched. Enable this output with <code>-F csv_summary</code>.</p>
+<p><em>krona</em> When used with <code>-F krona --rank RANK</code>, <code>sourmash tax metagenome</code> optionally produces a tab-separated list of results at a specific rank, which can be directly used to generate a <code>krona</code> plot (cite krona; add krona figure to results). This format contains the (non-abundance weighted) fraction of the query matched to the reported rank and lineage, with columns for each taxonomic rank down to the rank used for summarization.</p>
 <p><em>lineage_summary</em> The lineage summary format is a way to compare taxonomy results over multiple metagenome queries. It can be generated with <code>-F lineage_summary --rank RANK</code>, and will consist of one row per summarized lineage, with columns for the fraction matched in each metagenome sample.</p>
 <p><em>kreport</em> The kreport output reports kraken-style kreport output, with tab-separated columns. While this format typically records the percent of number of reads assigned to taxa, <code>sourmash taxonomy</code> creates comparable output by reporting the percent of k-mers matched to each taxon and the estimated number of base pairs that these k-mers represent. To best represent the percent of all reads, we use k-mer abundance information in this output. To generate this properly, query FracMinHash sketches should be generated with abundance information (<code>-p abund</code>), which will yield gather results with abundance weighting information.</p>
 <h4 id="sourmash-tax-genome">sourmash tax genome</h4>
 <p><code>sourmash tax genome</code> is designed to aggregate sourmash gather results run on genome assemblies.
 Rather than summarizing at each taxonomic rank, sourmash <code>tax genome</code> summarizes gather results starting from the lowest rank (species) and will classify the genome as soon as a user-modifiable criterion is reached. There are two classification strategies: classify the query once a match threshold is reached (e.g. 10% containment or 95% cANI), or classify the query once a rank is reached, regardless of percent match. The first strategy is recommended for more robust classification; the second strategy is required for downstream tools requiring all inputs at the same rank.</p>
 <p><strong>Output Formats</strong></p>
-<p><em>csv_summary</em> This outputs a csv with taxonomic classification for each query genome. This output currently consists of six columns, query_name,rank,fraction,lineage,query_md5,query_filename, where fraction is the fraction of the query matched to the reported rank and lineage. The status column provides additional information on the classification:</p>
-<p><em>krona</em> When used with <code>-F krona --rank RANK</code>, <code>sourmash tax genome</code> optionally produces a tab-separated list of results at a specific rank, which can be directly used to generate a <code>krona</code> plot (cite krona; add krona figure to results). This format is minimal, containing fraction of the query matched to the reported rank and lineage, with columns for each taxonomic rank down to the rank used for summarization.</p>
+<p><em>csv_summary</em> This outputs a CSV with taxonomic classification for each query genome.
+Similar to <code>tax metagenome</code>, <code>tax genome</code> will output both the fraction of unique k-mers (<code>fraction</code>), and abundance-weighted fraction of unique k-mers (<code>f_weighted_at_rank</code>) matched to the classification lineage. The additional <code>status</code> column provides information on the classification: <code>match</code>- this query was classified, <code>nomatch</code>- this query could not be classified, <code>below_threshold</code> - this query was classified at the specified rank, but the query fraction matched was below the default containment threshold (10% of query k-mers).</p>
+<p><em>krona</em> When used with <code>-F krona --rank RANK</code>, <code>sourmash tax genome</code> optionally produces a tab-separated list of results at a specific rank, which can be directly used to generate a <code>krona</code> plot. Note that use of <code>--rank</code> with this command forces classification at the specified rank, rather than by containment or cANI threshold. This format contains the (non-abundance weighted) fraction of the query matched to the reported rank and lineage, with columns for each taxonomic rank down to the rank used for summarization.
+<!-- NOTE: add abund weighting option for krona output? or switch that to default? --></p>
 <h3 id="utility-commands">Utility commands</h3>
 <h4 id="sourmash-tax-annotate">sourmash tax annotate</h4>
-<p>tax annotate annotates gather results with taxonomic information, without doing any LCA summarization.</p>
+<p><code>sourmash tax annotate</code> adds genome-level taxonomic information to gather output, without doing any LCA summarization. It writes a <code>{SAMPLE-GATHER}.with-lineages.csv</code>, which contains a column with semicolon-separated taxonomic lineage information for each genome result in the gather output. This step is not required for either metagenome or genome.</p>
 <h4 id="sourmash-tax-prepare">sourmash tax prepare</h4>
-<p>tax prepare is a method for converting a csv of taxonomic lineage information into an sqlite database to enable faster loading and lineage assignment. It can also be used to combine lineage information for more that one database (e.g. GTDB, NCBI).</p>
+<p><code>sourmash tax prepare</code> is a method for converting taxonomic lineage information into an sqlite3 database to enable faster loading and lineage assignment. This command can convert a standard lineages CSV, described above, or use output of <code>tax annotate</code> to build a database; it can also be used to combine lineage information for more that one database. If multiple taxonomic lineages are provided for the same identifier, the sqlite3 database will retain only the last lineage. Note that this step is not required for use of any command; multiple lineage CSV files can be provided directly to any <code>sourmash tax</code> command.</p>
 <h4 id="sourmash-tax-summarize">sourmash tax summarize</h4>
-<p>Summarize the lineage information in a human-reaedable summary</p>
-<h4 id="sourmash-tax-crosscheck">sourmash tax crosscheck</h4>
+<p><code>sourmash tax summarize</code> summarizes the lineage information in a human-readable summary, printing the number of genome identifiers for each taxonomic lineage at each rank. It can be used to print a CSV file with a detailed count of how many identifiers belong to each taxonomic lineage.</p>
+<!-- #### sourmash tax crosscheck -->
 <h4 id="sourmash-tax-grep">sourmash tax grep</h4>
-<p>select genomes entries by lineage; most useful for selecting subsets of results or reference genomes for sourmash analyses.</p>
+<p><code>sourmash tax grep</code> searches taxonomies for matching strings, optionally restricting the string search to a specific taxonomic rank. It creates new files containing matching taxonomic entries, which can be useful for selecting subsets of results or reference genomes for sourmash analyses.</p>
 <h2 id="results">Results</h2>
 <h3 id="tax-metagenome">Tax Metagenome</h3>
 <h4 id="reads">Reads</h4>
