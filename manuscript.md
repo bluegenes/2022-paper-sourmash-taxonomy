@@ -27,8 +27,8 @@ header-includes: |-
   <meta name="dc.date" content="2022-11-14" />
   <meta name="citation_publication_date" content="2022-11-14" />
   <meta property="article:published_time" content="2022-11-14" />
-  <meta name="dc.modified" content="2022-11-14T21:29:15+00:00" />
-  <meta property="article:modified_time" content="2022-11-14T21:29:15+00:00" />
+  <meta name="dc.modified" content="2022-11-14T21:42:03+00:00" />
+  <meta property="article:modified_time" content="2022-11-14T21:42:03+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -58,9 +58,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4a9d43a24e2cdd6f05b436a155476db5fccc5141/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4a9d43a24e2cdd6f05b436a155476db5fccc5141/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4a9d43a24e2cdd6f05b436a155476db5fccc5141/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -82,9 +82,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/))
+([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4a9d43a24e2cdd6f05b436a155476db5fccc5141/))
 was automatically generated
-from [bluegenes/2022-paper-sourmash-taxonomy@214efc5](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/214efc551a48f55d028d897693f803b63cba9748)
+from [bluegenes/2022-paper-sourmash-taxonomy@4a9d43a](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/4a9d43a24e2cdd6f05b436a155476db5fccc5141)
 on November 14, 2022.
 </em></small>
 
@@ -180,15 +180,15 @@ In our experience, aggregating k-mer matches to the set of best genome matches w
 
 ## Implementation
 
-Sourmash taxonomy conducts Lowest Common Ancestor (LCA) taxonomic summarization of the genomic profiling results from sourmash gather.
-It was introduced in sourmash v4.2, and all commands and outputs described here are available as of sourmash v4.6.
+`sourmash taxonomy` conducts Lowest Common Ancestor (LCA) taxonomic summarization of the genomic profiling results from `sourmash gather`.
+It was introduced in `sourmash` v4.2, and all commands and outputs described here are available as of `sourmash` v4.6.
 
 ### LCA Lineage summarization
 
-Sourmash gather uses a minimum set cover approach to identify the smallest set of reference genomes that contain all query information (k-mers) [@sourmash_gather].
+`sourmash gather` uses a minimum set cover approach to identify the smallest set of reference genomes that contain all query information (k-mers) [@sourmash_gather].
 These matches are non-overlapping; that is, the sum of the query fraction assigned to each genome will be at most 100% (entire query matched to reference genomes).
 
-Sourmash taxonomy LCA methods apply the taxonomic information from these reference genomes to their assigned query fraction and sum matches that correspond to the same taxonomic rank. For example, if the `sourmash gather` results for a metagenome include matches to 10 different strains of a given species, `sourmash tax` LCA can sum the fraction uniquely matched to each strain to obtain the total fraction uniquely matched to this species.
+`sourmash taxonomy` methods apply the taxonomic information from these reference genomes to their assigned query fraction and optionally conduct LCA summarization by summing matches with the same lineage annotation. For example, if the `sourmash gather` results for a metagenome include matches to 10 different strains of a given species, `sourmash tax` LCA methods can sum the fraction uniquely matched to each strain to obtain the total fraction uniquely matched to this species.
 
 Because this approach relies upon non-overlapping reference assignments, separate `sourmash gather` results for the same query cannot be combined. However, `sourmash gather` can be run with any number of desired reference databases at once to produce a single set of non-overlapping assignments.
 

@@ -21,14 +21,14 @@ Luiz
 luizirber
 mer
 mers
-metagenome
+Metagenome
 metagenomes
 NHGRI
 phulum
 Reiter
 ReiterTaylor
 saltyscientist
-sourmash
+Sourmash
 suboptimal
 subsetting
 summarization
