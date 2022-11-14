@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/gh-pages) branch hosts the contents of this directory at <https://bluegenes.github.io/2022-paper-sourmash-taxonomy/>.
-The permalink for this webpage version is <https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/214efc551a48f55d028d897693f803b63cba9748/>.
+The permalink for this webpage version is <https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4a9d43a24e2cdd6f05b436a155476db5fccc5141/>.
 To redirect to the permalink for the latest manuscript version at anytime, use the link <https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/freeze/>.
 
 ## Files
@@ -35,4 +35,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`214efc551a48f55d028d897693f803b63cba9748`](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/commit/214efc551a48f55d028d897693f803b63cba9748).
+[`4a9d43a24e2cdd6f05b436a155476db5fccc5141`](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/commit/4a9d43a24e2cdd6f05b436a155476db5fccc5141).
