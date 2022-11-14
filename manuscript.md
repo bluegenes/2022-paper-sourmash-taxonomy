@@ -27,8 +27,8 @@ header-includes: |-
   <meta name="dc.date" content="2022-11-14" />
   <meta name="citation_publication_date" content="2022-11-14" />
   <meta property="article:published_time" content="2022-11-14" />
-  <meta name="dc.modified" content="2022-11-14T19:17:16+00:00" />
-  <meta property="article:modified_time" content="2022-11-14T19:17:16+00:00" />
+  <meta name="dc.modified" content="2022-11-14T19:29:55+00:00" />
+  <meta property="article:modified_time" content="2022-11-14T19:29:55+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -58,9 +58,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4ded2cacfe63946c35a5751566157687484af1fd/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4ded2cacfe63946c35a5751566157687484af1fd/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4ded2cacfe63946c35a5751566157687484af1fd/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/dc673278618bf1a1e1865477894d23cfdcd4d406/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/dc673278618bf1a1e1865477894d23cfdcd4d406/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/dc673278618bf1a1e1865477894d23cfdcd4d406/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -82,9 +82,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/4ded2cacfe63946c35a5751566157687484af1fd/))
+([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/dc673278618bf1a1e1865477894d23cfdcd4d406/))
 was automatically generated
-from [bluegenes/2022-paper-sourmash-taxonomy@4ded2ca](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/4ded2cacfe63946c35a5751566157687484af1fd)
+from [bluegenes/2022-paper-sourmash-taxonomy@dc67327](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/dc673278618bf1a1e1865477894d23cfdcd4d406)
 on November 14, 2022.
 </em></small>
 
@@ -181,7 +181,7 @@ In our experience, aggregating k-mer matches to the set of best genome matches w
 ## Implementation
 
 Sourmash taxonomy conducts LCA-style taxonomic summarization of the genomic profiling results from sourmash gather.
-It was introduced in sourmash v4.2.
+It was introduced in sourmash v4.2, and all commands and outputs described here are available as of sourmash v4.6.
 
 ### LCA-Style Lineage summarization
 
@@ -205,22 +205,26 @@ tax commands rely upon the fact that gather provides both the total fraction of 
 `tax metagenome` ingests sourmash gather results from one or more metagenome queries and summarize the results for each metagenome at each taxonomic rank.
 `tax metagenome` provides several output file options, including some that are designed to facilitate input into downstream analysis tools.
 
-**csv_summary** This output file reports a lineage summarization for each query at each taxonomic rank.
+**Output Formats**
 
-**krona** When used with `-F krona --rank RANK`, `sourmash tax metagenome` optionally produces a tab-separated list of results at a specific rank, which can be directly used to generate a `krona` plot (cite krona; add krona figure to results). This format is minimal, containing fraction of the query matched to the reported rank and lineage, with columns for each taxonomic rank down to the rank used for summarization.
+*csv_summary* This output file reports a lineage summarization for each query at each taxonomic rank. Enable this output with `-F csv_summary`.
 
-**lineage_summary** The lineage summary format is a way to compare taxonomy results over multiple metagenome queries. It can be generated with `-F lineage_summary --rank RANK`, and will consist of one row per summarized lineage, with columns for the fraction matched in each metagenome sample.
+*krona* When used with `-F krona --rank RANK`, `sourmash tax metagenome` optionally produces a tab-separated list of results at a specific rank, which can be directly used to generate a `krona` plot (cite krona; add krona figure to results). This format is minimal, containing fraction of the query matched to the reported rank and lineage, with columns for each taxonomic rank down to the rank used for summarization.
 
-**kreport** The kreport output reports kraken-style kreport output, which may be useful for comparison with other taxonomic profiling methods. While this format typically records the percent of number of reads assigned to taxa, `sourmash taxonomy` creates comparable output by reporting the percent of k-mers matched to each taxon and the estimated number of base pairs that these k-mers represent. To best represent the percent of all reads, we use k-mer abundance information in this output. To generate this properly, query FracMinHash sketches should be generated with abundance information (`-p abund`), which will yield gather results with abundance weighting information.
+*lineage_summary* The lineage summary format is a way to compare taxonomy results over multiple metagenome queries. It can be generated with `-F lineage_summary --rank RANK`, and will consist of one row per summarized lineage, with columns for the fraction matched in each metagenome sample.
+
+*kreport* The kreport output reports kraken-style kreport output, with tab-separated columns. While this format typically records the percent of number of reads assigned to taxa, `sourmash taxonomy` creates comparable output by reporting the percent of k-mers matched to each taxon and the estimated number of base pairs that these k-mers represent. To best represent the percent of all reads, we use k-mer abundance information in this output. To generate this properly, query FracMinHash sketches should be generated with abundance information (`-p abund`), which will yield gather results with abundance weighting information.
 
 #### sourmash tax genome
 
 `sourmash tax genome` is designed to aggregate sourmash gather results run on genome assemblies.
 Rather than summarizing at each taxonomic rank, sourmash `tax genome` summarizes gather results starting from the lowest rank (species) and will classify the genome as soon as a user-modifiable criterion is reached. There are two classification strategies: classify the query once a match threshold is reached (e.g. 10% containment or 95% cANI), or classify the query once a rank is reached, regardless of percent match. The first strategy is recommended for more robust classification; the second strategy is required for downstream tools requiring all inputs at the same rank.
 
-**csv_summary** This outputs a csv with taxonomic classification for each query genome. This output currently consists of six columns, query_name,rank,fraction,lineage,query_md5,query_filename, where fraction is the fraction of the query matched to the reported rank and lineage. The status column provides additional information on the classification:
+**Output Formats**
 
-**krona** When used with `-F krona --rank RANK`, `sourmash tax genome` optionally produces a tab-separated list of results at a specific rank, which can be directly used to generate a `krona` plot (cite krona; add krona figure to results). This format is minimal, containing fraction of the query matched to the reported rank and lineage, with columns for each taxonomic rank down to the rank used for summarization.
+*csv_summary* This outputs a csv with taxonomic classification for each query genome. This output currently consists of six columns, query_name,rank,fraction,lineage,query_md5,query_filename, where fraction is the fraction of the query matched to the reported rank and lineage. The status column provides additional information on the classification:
+
+*krona* When used with `-F krona --rank RANK`, `sourmash tax genome` optionally produces a tab-separated list of results at a specific rank, which can be directly used to generate a `krona` plot (cite krona; add krona figure to results). This format is minimal, containing fraction of the query matched to the reported rank and lineage, with columns for each taxonomic rank down to the rank used for summarization.
 
 ### Utility commands
 
