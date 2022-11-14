@@ -11,6 +11,7 @@ GBMF
 genbank
 genomic
 gtdb
+ident
 Irber
 kraken
 kreport
@@ -23,13 +24,16 @@ metagenome
 metagenomes
 NCBI
 NHGRI
+phulum
 reaedable
 Reiter
 ReiterTaylor
 saltyscientist
 Sourmash
 suboptimal
+subsetting
 summarization
+superkingdom
 taxid
 taylorreiter
 thresholding

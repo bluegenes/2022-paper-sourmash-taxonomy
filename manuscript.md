@@ -27,8 +27,8 @@ header-includes: |-
   <meta name="dc.date" content="2022-11-14" />
   <meta name="citation_publication_date" content="2022-11-14" />
   <meta property="article:published_time" content="2022-11-14" />
-  <meta name="dc.modified" content="2022-11-14T19:29:55+00:00" />
-  <meta property="article:modified_time" content="2022-11-14T19:29:55+00:00" />
+  <meta name="dc.modified" content="2022-11-14T19:41:23+00:00" />
+  <meta property="article:modified_time" content="2022-11-14T19:41:23+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -58,9 +58,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/dc673278618bf1a1e1865477894d23cfdcd4d406/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/dc673278618bf1a1e1865477894d23cfdcd4d406/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/dc673278618bf1a1e1865477894d23cfdcd4d406/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/b7a32581ab6207683905e7b948a69d795ce5b299/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/b7a32581ab6207683905e7b948a69d795ce5b299/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/b7a32581ab6207683905e7b948a69d795ce5b299/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -82,9 +82,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/dc673278618bf1a1e1865477894d23cfdcd4d406/))
+([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/b7a32581ab6207683905e7b948a69d795ce5b299/))
 was automatically generated
-from [bluegenes/2022-paper-sourmash-taxonomy@dc67327](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/dc673278618bf1a1e1865477894d23cfdcd4d406)
+from [bluegenes/2022-paper-sourmash-taxonomy@b7a3258](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/b7a32581ab6207683905e7b948a69d795ce5b299)
 on November 14, 2022.
 </em></small>
 
@@ -192,7 +192,9 @@ Sourmash taxonomy LCA methods apply the taxonomic information from these referen
 
 Because this approach relies upon non-overlapping reference assignments, separate `sourmash gather` results for the same query cannot be combined. However, `sourmash gather` can be run with any number of desired reference databases at once to produce a single set of non-overlapping assignments.
 
-Two `sourmash tax` commands use this LCA-Style summarization: `metagenome` and `genome`.
+All `tax` commands require a properly-formatted taxonomic lineages file: a csv file containing a unique genome identifier and one column per taxonomic rank, with correct headers (e.g. "ident", "superkingdom", "phulum", ..., "species"). A column containing strain-level information is optional.
+
+Two `sourmash tax` commands use LCA-Style summarization: `metagenome` and `genome`, while the remaining commands provide utility functions for summarizing lineage file information (`summarize`) and checking database-lineage file correspondence (`crosscheck`), preparing a lineage file for fast search (`prepare`), subsetting large reference databases by lineage (`grep`), and annotating gather results with genome-level lineage information (`annotate`).
 
 <!--
 tax commands rely upon the fact that gather provides both the total fraction of the query matched to each database matched, as well as a non-overlapping f_unique_to_query, which is the fraction of the query uniquely matched to each reference genome. The f_unique_to_query for any reference match will always be between (0% of query matched) and 1 (100% of query matched), and for a query matched to multiple references, the f_unique_to_query will sum to at most 1 (100% of query matched). We use this property to aggregate gather matches at the desired taxonomic rank. For example, if the gather results for a metagenome include results for 30 different strains of a given species, we can sum the fraction uniquely matched to each strain to obtain the fraction uniquely matched to this species. Alternatively, taxonomic summarization can take into account abundance weighting; see classifying signatures for more information.
@@ -201,8 +203,8 @@ tax commands rely upon the fact that gather provides both the total fraction of 
 
 #### sourmash tax metagenome
 
-“sourmash tax metagenome” is designed to conduct LCA aggregation for metagenomes to build a taxonomic profile.
-`tax metagenome` ingests sourmash gather results from one or more metagenome queries and summarize the results for each metagenome at each taxonomic rank.
+`sourmash tax metagenome` is designed to conduct LCA aggregation for metagenomes to build a taxonomic profile.
+It ingests sourmash gather results from one or more metagenome queries and summarize the results for each metagenome at each taxonomic rank.
 `tax metagenome` provides several output file options, including some that are designed to facilitate input into downstream analysis tools.
 
 **Output Formats**
