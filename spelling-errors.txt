@@ -17,7 +17,7 @@ Luiz
 luizirber
 mer
 mers
-metagenome
+Metagenome
 metagenomes
 NCBI
 NHGRI
@@ -25,7 +25,7 @@ reaedable
 Reiter
 ReiterTaylor
 saltyscientist
-Sourmash
+sourmash
 suboptimal
 summarization
 taxid

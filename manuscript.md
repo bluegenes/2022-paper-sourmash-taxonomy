@@ -1,5 +1,5 @@
 ---
-title: sourmash taxonomy for LCA-style summarization of genome-resolved taxonomic profiling
+title: 'sourmash taxonomy: LCA summarization of genome-resolved taxonomic profiling'
 keywords:
 - taxonomic profiling
 - FracMinHash
@@ -20,15 +20,15 @@ header-includes: |-
   -->
   <meta name="dc.format" content="text/html" />
   <meta property="og:type" content="article" />
-  <meta name="dc.title" content="sourmash taxonomy for LCA-style summarization of genome-resolved taxonomic profiling" />
-  <meta name="citation_title" content="sourmash taxonomy for LCA-style summarization of genome-resolved taxonomic profiling" />
-  <meta property="og:title" content="sourmash taxonomy for LCA-style summarization of genome-resolved taxonomic profiling" />
-  <meta property="twitter:title" content="sourmash taxonomy for LCA-style summarization of genome-resolved taxonomic profiling" />
+  <meta name="dc.title" content="sourmash taxonomy: LCA summarization of genome-resolved taxonomic profiling" />
+  <meta name="citation_title" content="sourmash taxonomy: LCA summarization of genome-resolved taxonomic profiling" />
+  <meta property="og:title" content="sourmash taxonomy: LCA summarization of genome-resolved taxonomic profiling" />
+  <meta property="twitter:title" content="sourmash taxonomy: LCA summarization of genome-resolved taxonomic profiling" />
   <meta name="dc.date" content="2022-11-14" />
   <meta name="citation_publication_date" content="2022-11-14" />
   <meta property="article:published_time" content="2022-11-14" />
-  <meta name="dc.modified" content="2022-11-14T17:30:45+00:00" />
-  <meta property="article:modified_time" content="2022-11-14T17:30:45+00:00" />
+  <meta name="dc.modified" content="2022-11-14T18:19:02+00:00" />
+  <meta property="article:modified_time" content="2022-11-14T18:19:02+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -58,9 +58,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/" />
   <meta name="citation_pdf_url" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/a8ccd41711ebde02b067d6110b4b61463846e603/" />
-  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/a8ccd41711ebde02b067d6110b4b61463846e603/" />
-  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/a8ccd41711ebde02b067d6110b4b61463846e603/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/84e8719c334a70dbfd760946264a36a6d0c06b1c/" />
+  <meta name="manubot_html_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/84e8719c334a70dbfd760946264a36a6d0c06b1c/" />
+  <meta name="manubot_pdf_url_versioned" content="https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/84e8719c334a70dbfd760946264a36a6d0c06b1c/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -82,9 +82,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/a8ccd41711ebde02b067d6110b4b61463846e603/))
+([permalink](https://bluegenes.github.io/2022-paper-sourmash-taxonomy/v/84e8719c334a70dbfd760946264a36a6d0c06b1c/))
 was automatically generated
-from [bluegenes/2022-paper-sourmash-taxonomy@a8ccd41](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/a8ccd41711ebde02b067d6110b4b61463846e603)
+from [bluegenes/2022-paper-sourmash-taxonomy@84e8719](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/tree/84e8719c334a70dbfd760946264a36a6d0c06b1c)
 on November 14, 2022.
 </em></small>
 
@@ -95,7 +95,7 @@ on November 14, 2022.
 
 
 + **N. Tessa Pierce-Ward**
-  ^[✉](#correspondence)^<br>
+  <br>
     ![ORCID icon](images/orcid.svg){.inline_icon width=16 height=16}
     [0000-0002-2942-5331](https://orcid.org/0000-0002-2942-5331)
     · ![GitHub icon](images/github.svg){.inline_icon width=16 height=16}
@@ -151,9 +151,6 @@ on November 14, 2022.
 
 ::: {#correspondence}
 ✉ — Correspondence possible via [GitHub Issues](https://github.com/bluegenes/2022-paper-sourmash-taxonomy/issues)
-or email to
-N. Tessa Pierce-Ward \<ntpierce@ucdavis.edu\>.
-
 
 :::
 
