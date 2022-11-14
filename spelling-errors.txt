@@ -3,7 +3,7 @@ CAMI
 cANI
 combinatorial
 Contigs
-csv
+CSV
 ctb
 dataset
 FracMinHash

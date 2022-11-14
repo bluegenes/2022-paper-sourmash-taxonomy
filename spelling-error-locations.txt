@@ -115,7 +115,9 @@ content/03.implementation.md:66:sourmash
 content/03.implementation.md:67:sourmash
 content/03.implementation.md:67:sourmash
 content/04.results.md:3:Metagenome
-content/04.results.md:7:Contigs
+content/04.results.md:10:Contigs
+content/04.results.md:18:thresholding
+content/04.results.md:20:cANI
 content/05.discussion.md:8:csv
 content/05.discussion.md:8:GTDB
 content/05.discussion.md:12:thresholding
