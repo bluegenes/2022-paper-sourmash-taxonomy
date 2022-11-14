@@ -1,5 +1,5 @@
 ---
-title: "sourmash taxonomy for LCA-style summarization of genome-resolved taxonomic profiling"
+title: "sourmash taxonomy: LCA summarization of genome-resolved taxonomic profiling"
 date: null  # Defaults to date generated, but can specify like '2022-10-31'.
 keywords:
   - taxonomic profiling
@@ -21,7 +21,6 @@ authors:
       - Grant 1711984 from the NSF
       - Grant GBMF4551 from the Gordon and Betty Moore Foundation
       - Grant 2018911 from the NSF
-    corresponding: true
   - github: luizirber
     name: Luiz Irber
     initials: LI
